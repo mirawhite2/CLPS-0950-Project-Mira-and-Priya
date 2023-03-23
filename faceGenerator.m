@@ -2,13 +2,14 @@
 %written on 3/17/23, 3/18/23, 3/19/23, 3/21/23, 3/22/23
 %Priya Bhanot
 %
-%to generate a face, change n according to desired size, and press run
+%to generate a face, change n according to desired size
 %to generate NOT a face, comment out desired feature section(s) (ie.
 %eyes,nose,mouth)
 %
+%n = size of square matrix
 %for best results, n >= 9
+function image = faceGenerator(n)
 
-n = 10;
 image = ones(n);
 
 if mod(n,2) ~= 0 %if n is odd
@@ -39,3 +40,5 @@ else %if n is even
     %create mouth
     image(center1+eye_local1, eye_local1:center1+unit1+1) = 0;
 end
+end
+%imagesc(image)
