@@ -4,7 +4,7 @@
 %                 eyes (two black dots placed symmetrically above nose)
 %                 mouth (one rectangle below the nose)
 %
-%written from 3/14/23-3/23/23, Priya Bhanot & Mira White
+%written on 3/18/23, 3/19/23, 3/20/23, 3/22/23, 3/23/23 by Priya Bhanot
 
 function [nose_detected,eyes_detected,mouth_detected,face_detected] = faceFinder(image)
 
