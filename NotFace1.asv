@@ -1,0 +1,9 @@
+%notface1 (input)
+%written on 3/16/23
+%by Priya Bhanot
+
+
+notface1 = ones(10);
+notface1(2:3, 7:8) = zeros;
+notface1(5:6,5:6) = zeros;
+notface1(8:9, 3:8) = zeros;
