@@ -8,5 +8,5 @@ notface1(2:3, 7:8) = zeros;
 notface1(5:6,5:6) = zeros;
 notface1(8:9, 3:8) = zeros;
 
-imagesc(notface1);
-disp(notface1)
+%imagesc(notface1);
+%disp(notface1)
