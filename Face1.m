@@ -12,4 +12,4 @@ face1(5:6,5:6) = zeros;
 %mouth
 face1(8:9, 3:8) = zeros;
 
-imagesc(face1)
+%imagesc(face1)
