@@ -1,88 +1,79 @@
-%faceFinder: this function detects facial features and whether a face is
-%            present
-%facial features: nose (one dot/square in the center of face)
-%                 eyes (two black dots placed symmetrically above nose)
-%                 mouth (one rectangle below the nose)
-%
-%written on 3/18/23, 3/19/23, 3/20/23, 3/22/23, 3/23/23 by Priya Bhanot
-
-function [nose_detected,eyes_detected,mouth_detected,face_detected] = faceFinder(image)
-
-A = size(image);
-N = A(1);
-nose_detected = 0;
-eyes_detected = 0;
-mouth_detected = 0;
-face_detected = 0;
-
-if mod(N,2) == 1 %if N is odd
-    center = round(N/2);
-    %nose detection
-    if image(center,center) == 0
-        nose_detected = 1;
-    else
-        nose_detected = 0;
-    end
-    %eyes detection. 1 = both eyes, 2 = no eyes, 3 = one eye
-    eye_local = round(center/2);
-    unit = center - eye_local;
-    if image(eye_local, eye_local) ==1 & image(eye_local,center+unit) ==1
-        left_eye = 1;
-        right_eye = 1;
-    elseif image(eye_local, eye_local) ==1
-        left_eye = 1;
-        right_eye = 0;
-    elseif image(eye_local,center+unit) ==1
-        left_eye=0;
-        right_eye=1;
-    else
-        left_eye =0;
-        right_eye =0;
-    end
-    if left_eye & right_eye == 1
-        eyes_detected =1;
-    elseif left_eye == 1 || right_eye ==1
-        eyes_detected = 3;
-    else
-        eyes_detected = 0;
-    end
-    %mouth detection
-    if image(center+unit, eye_local:center+unit) ==0
-        mouth_detected =1;
-    else
-        mouth_detected = 0;
-    end
-else %if N is even
-    even_center = N/2;
-    %nose detection
-    if image(even_center:even_center+1, even_center:even_center+1) ==0;
-        nose_detected = 1;
-    else
-        nose_detected = 0;
-    end
-    %eyes detection
-    even_eyelocal = round(even_center/2);
-    unit1 = even_center - even_eyelocal;
-    if (image(even_eyelocal, even_eyelocal) == 0) & (image(even_eyelocal,even_center+unit1+1)==0)
-        eyes_detected = 1;
-    elseif (image(even_eyelocal, even_eyelocal) == 1) & (image(even_eyelocal,even_center+unit1+1)==0)
-        eyes_detected = 0;
-    else
-        eyes_detected =3;
-    end
-    %mouth detection
-    if image(even_center + even_eyelocal, even_eyelocal:center+center - even_eyelocal+1) ==0
-        mouth_detected = 1;
-    else
-        mouth_detected = 0;
-    end
-end
-
-if ((nose_detected == 1) & (eyes_detected ==1) & (mouth_detected ==1))
-    face_detected = 1;
+function [detected] = faceFinder(image)
+%Detect whether a face is present within a given image
+%   eyes = two symmetrical black squares 
+%   nose = one square in center of face below eyes
+%   mouth = one symmetrical rectangle below nose
+%   image must be square
+% Written by Priya Bhanot and Mira White 
+detected = true;
+N = size(image)
+%determine if symmetrical or not
+tf_sym = issymmetric(image)
+if tf_sym == false
+    detected = false;
+%if symmetric, determine in facial features are present
 else
-    face_detected = 0;
-end
+    if mod(N,2) == 1
+        %nose determination
+        center = round(N/2);
+        if image(center,center) == 1
+            detected = false;
+        else
+            A = find(image(center,:) == 0)
+            B = find(image(:,center) == 0)
+            if size(A) =~ size(B)
+                detected = false;
+            else
 
-imagesc(image)
+            end
+        end
+
+
+
+    else
+        %nose determination
+        center = N/2;
+        nose_local = find(image(center,center))
+
+
+ 
+
+    end
+    %eye detector
+    eye_model =[0,0;0,0];
+    if detected == true
+        eye_index1 = round(N(2)/4);
+        if image(2:2,eye_index1:eye_index1 + 1) ~= eye_model
+            detected = false;
+        elseif image(2:2, N(2)-eye_index1: N(2) - (eye_index1-1)) ~= eye_model
+            detected = false;
+        else
+            detected = true;
+        end
+    end
+
+    %mouth detector
+    mouth_model = [0,0,0,0,0,0;0,0,0,0,0,0];
+    mouth_index = round(N(2)/4);
+    if detected == true
+        if image(8:9,mouth_index:N(2)+1-mouth_index) ~= mouth_model
+            detected = false;
+        else
+            detected = true;
+        end
+    end
+
+        
+
+
+      
+        
+        
+       
+        
+
+      
+
+
+end
 end
