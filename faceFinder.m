@@ -86,7 +86,7 @@ elseif (nose detected == 0)
     face_detected = 0;
     disp ('There is no nose, no face detected')
 elseif (eyes detected == 0)
-    face_detected == 0;
+    face_detected = 0;
     disp ('There are no eyes, no face detected')
 elseif (mouth_detected == 0)
     face_detected = 0;
