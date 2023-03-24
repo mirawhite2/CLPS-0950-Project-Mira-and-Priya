@@ -5,6 +5,7 @@
 %                 mouth (one rectangle below the nose)
 %
 %written on 3/18/23, 3/19/23, 3/20/23, 3/22/23, 3/23/23 by Priya Bhanot
+%disp statements and debugging written on 3/22/23, 3/23/2023 by Mira White
 
 function [nose_detected,eyes_detected,mouth_detected,face_detected] = faceFinder(image)
 
@@ -80,9 +81,15 @@ end
 
 if ((nose_detected == 1) & (eyes_detected ==1) & (mouth_detected ==1))
     face_detected = 1;
-    disp 'face detected'
-else
+    disp ('Face detected')
+elseif (nose detected == 0)
     face_detected = 0;
-    disp 'no face detected'
+    disp ('There is no nose, no face detected')
+elseif (eyes detected == 0)
+    face_detected == 0;
+    disp ('There are no eyes, no face detected')
+elseif (mouth_detected == 0)
+    face_detected = 0;
+    disp ('There is no mouth, no face detected')
 end
 end
