@@ -82,10 +82,10 @@ end
 if ((nose_detected == 1) & (eyes_detected ==1) & (mouth_detected ==1))
     face_detected = 1;
     disp ('Face detected')
-elseif (nose detected == 0)
+elseif (nose_detected == 0)
     face_detected = 0;
     disp ('There is no nose, no face detected')
-elseif (eyes detected == 0)
+elseif (eyes_detected == 0)
     face_detected = 0;
     disp ('There are no eyes, no face detected')
 elseif (mouth_detected == 0)
