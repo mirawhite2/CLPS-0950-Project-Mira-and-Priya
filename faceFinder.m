@@ -80,7 +80,9 @@ end
 
 if ((nose_detected == 1) & (eyes_detected ==1) & (mouth_detected ==1))
     face_detected = 1;
+    disp 'face detected'
 else
     face_detected = 0;
+    disp 'no face detected'
 end
 end
