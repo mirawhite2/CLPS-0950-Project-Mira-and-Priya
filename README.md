@@ -15,13 +15,13 @@ Generating a Face image and inputting it to the faceFinder function for facial d
 1. Input desired 'n' to determine size of face image produced by faceGenerator function (for best results, use n>=9)
 
 
-#GIF 1
+# GIF 1
 ![](https://github.com/mirawhite2/CLPS-0950-Project-Mira-and-Priya/blob/master/GIF%201.gif)
 
 2. Press RUN. Enjoy your results! (Results include image of face input, summary output statment, breakdown of which facial features are present, and whether a face is detected)
 
 
-#GIF 2
+# GIF 2
 ![](https://github.com/mirawhite2/CLPS-0950-Project-Mira-and-Priya/blob/master/GIF%202.gif)
 
 Generating/Customizing a NOT Face image and inputting it to the the faceFinder function for facial detection:
@@ -29,17 +29,17 @@ Generating/Customizing a NOT Face image and inputting it to the the faceFinder f
 1. Input desired 'n' to determine size of face image produced by faceGenerator function (for best results, use n>=9). Note whether chosen 'n' is odd or even.
 
 
-#GIF 3
+# GIF 3
 ![](https://github.com/mirawhite2/CLPS-0950-Project-Mira-and-Priya/blob/master/GIF%203.gif)
 
 2. Go to 'faceGenerator.m' function script. Comment out the line below the feature you would like to remove using '%' in the appropriate "if n is odd/even" section.
 
 
-#GIF 4
+# GIF 4
 ![](https://github.com/mirawhite2/CLPS-0950-Project-Mira-and-Priya/blob/master/GIF%204.gif)
 
 3. Return to 'Main.m' script. Press RUN. Enjoy your results! (Results include image of face input, summary output statment, breakdown of which facial features are present, and whether a face is detected)
 
 
-#GIF 5
+# GIF 5
 ![](https://github.com/mirawhite2/CLPS-0950-Project-Mira-and-Priya/blob/master/GIF%205.gif)
